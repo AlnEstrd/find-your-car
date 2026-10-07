@@ -30,6 +30,8 @@ CODEMIE_API_KEY=...
 CODEMIE_MODEL=gpt-4o          # or any model your CodeMie project offers
 ```
 
+📘 **Step-by-step guide to getting the URL, key or token:** [docs/CODEMIE_SETUP.md](docs/CODEMIE_SETUP.md) (SSO local proxy, LiteLLM key, or JWT for CI).
+
 The console's top bar shows which mode is active. Any other OpenAI-compatible gateway works the same way.
 
 ## The three requirements
