@@ -46,6 +46,15 @@ a { color: var(--accent); }
 /* ---------- car cards ---------- */
 .cars { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; }
 .car { background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 6px; white-space: normal; }
+.car-photo { position: relative; margin: -12px -12px 4px; aspect-ratio: 16 / 9; border-radius: 11px 11px 0 0; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 100%, color-mix(in srgb, var(--accent) 14%, var(--surface-2)), var(--surface-2)); }
+.car-photo[data-fuel="electric"] { background: radial-gradient(120% 90% at 50% 100%, color-mix(in srgb, var(--ok) 18%, var(--surface-2)), var(--surface-2)); }
+.car-photo img, .car-fallback { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .3s ease; }
+.car-fallback { display: flex; align-items: center; justify-content: center; }
+.car-fallback svg { width: 72%; height: auto; }
+.car:hover .car-photo img { transform: scale(1.04); }
+.fuel-badge { position: absolute; top: 8px; left: 8px; font-size: 11px; font-weight: 600; text-transform: capitalize; padding: 2px 8px; border-radius: 99px;
+  background: color-mix(in srgb, var(--surface) 85%, transparent); color: var(--text); backdrop-filter: blur(4px); }
 .car-head { display: flex; justify-content: space-between; gap: 6px; align-items: flex-start; }
 .car h4 { margin: 0; font-size: 15px; }
 .car .price { font-weight: 700; font-size: 17px; }
