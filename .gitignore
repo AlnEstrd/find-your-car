@@ -1,0 +1,4 @@
+node_modules/
+.env
+data/dealers.json
+data/model.json

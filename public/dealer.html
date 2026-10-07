@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealer</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page"><div class="page-inner" id="root"><div class="empty">Loading…</div></div></div>
+  <script src="/cards.js"></script>
+  <script>
+    (async () => {
+      const id = new URLSearchParams(location.search).get('id');
+      const root = document.getElementById('root');
+      const res = await fetch(`/api/dealer?id=${encodeURIComponent(id)}`);
+      if (!res.ok) { root.innerHTML = '<div class="empty">Dealer not found.</div>'; return; }
+      const { dealer, cars } = await res.json();
+      document.title = dealer.name;
+      if (dealer.status !== 'active') {
+        root.innerHTML = `<div class="card"><h2>${esc(dealer.name)}</h2><p class="muted">This dealer page is currently unavailable.</p></div>`;
+        return;
+      }
+      root.innerHTML = `
+        <div class="card">
+          <h2 style="font-size:22px;margin-bottom:4px">${esc(dealer.name)}</h2>
+          <div class="muted">${esc(dealer.city)}</div>
+          <p>${esc(dealer.description)}</p>
+          <div class="row small">📞 ${esc(dealer.phone)} &nbsp; ✉️ <a href="mailto:${esc(dealer.email)}">${esc(dealer.email)}</a></div>
+        </div>
+        <div class="row" style="justify-content:space-between">
+          <h3 style="margin:0">${cars.length} cars in stock</h3>
+          <a href="/">Not sure which one? Ask our AI assistant →</a>
+        </div>
+        <div class="cars" id="cars"></div>`;
+      const grid = document.getElementById('cars');
+      for (const car of cars) grid.appendChild(carCard({ car }));
+    })();
+  </script>
+</body>
+</html>

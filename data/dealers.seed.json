@@ -1,0 +1,56 @@
+[
+  {
+    "id": "sunrise-motors",
+    "name": "Sunrise Motors",
+    "city": "Austin, TX",
+    "phone": "+1 512 555 0101",
+    "email": "sales@sunrise.example",
+    "description": "Family-owned dealer specialising in reliable Japanese brands and hybrids.",
+    "status": "active"
+  },
+  {
+    "id": "volt-auto",
+    "name": "Volt Auto Hub",
+    "city": "San Jose, CA",
+    "phone": "+1 408 555 0144",
+    "email": "hello@voltauto.example",
+    "description": "EV-first dealership with on-site fast charging and test drives at home.",
+    "status": "active"
+  },
+  {
+    "id": "prestige-cars",
+    "name": "Prestige Cars",
+    "city": "Miami, FL",
+    "phone": "+1 305 555 0190",
+    "email": "concierge@prestige.example",
+    "description": "Premium and luxury vehicles with concierge service.",
+    "status": "active"
+  },
+  {
+    "id": "trailhead-trucks",
+    "name": "Trailhead Trucks & SUVs",
+    "city": "Denver, CO",
+    "phone": "+1 720 555 0123",
+    "email": "team@trailhead.example",
+    "description": "Pickups, 4x4s and family haulers built for the outdoors.",
+    "status": "active"
+  },
+  {
+    "id": "metro-city-cars",
+    "name": "Metro City Cars",
+    "city": "Chicago, IL",
+    "phone": "+1 312 555 0177",
+    "email": "info@metrocity.example",
+    "description": "Downtown showroom for commuters: compact, efficient and great value.",
+    "status": "active"
+  },
+  {
+    "id": "coastline-auto",
+    "name": "Coastline Auto Group",
+    "city": "San Diego, CA",
+    "phone": "+1 619 555 0160",
+    "email": "sales@coastline.example",
+    "description": "Korean-brand specialist. Currently under compliance review.",
+    "status": "blocked"
+  }
+]

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find Your Car</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="consumer">
+    <div class="phone">
+      <header>
+        <div class="logo">🚗</div>
+        <div>
+          <h1>Find Your Car</h1>
+          <div class="small muted" id="status">AI assistant · online</div>
+        </div>
+        <button id="restart" class="small" style="margin-left:auto" title="Start a new conversation">New chat</button>
+      </header>
+      <div class="messages" id="messages"></div>
+      <div class="chips" id="chips"></div>
+      <form class="composer" id="composer">
+        <input id="input" placeholder="Type a message…" autocomplete="off" autofocus>
+        <button class="primary">Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="/cards.js"></script>
+  <script src="/chat.js"></script>
+</body>
+</html>

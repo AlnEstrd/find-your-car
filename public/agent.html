@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Console</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="console">
+  <div class="topbar">
+    <h1>🚗 Find Your Car · Agent Console</h1>
+    <nav class="tabs" id="tabs">
+      <button data-view="conversations" class="active">Conversations</button>
+      <button data-view="model">Matching model</button>
+      <button data-view="dealers">Dealers</button>
+    </nav>
+    <span class="small muted" id="llm" style="margin-left:auto"></span>
+    <a class="small" href="/" target="_blank">Open consumer chat ↗</a>
+  </div>
+
+  <!-- Conversations -->
+  <section class="view active" id="view-conversations">
+    <div class="conv-layout">
+      <div class="panel">
+        <div class="panel-head"><h3>Live conversations</h3><span class="pill" id="conv-count">0</span></div>
+        <div class="scroll" id="conv-list"><div class="empty">No conversations yet.<br>Open the consumer chat and say hi.</div></div>
+      </div>
+
+      <div class="chat-col" id="chat-col">
+        <div class="empty">Select a conversation</div>
+      </div>
+
+      <div class="panel" id="side">
+        <div class="empty">Customer insights appear here</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Matching model -->
+  <section class="view" id="view-model">
+    <div class="page"><div class="page-inner">
+      <div class="grid2">
+        <div class="card">
+          <h2>Criteria weights</h2>
+          <p class="small muted" style="margin-top:-6px">How much each criterion counts in the match score. Feedback nudges these automatically when auto-learn is on.</p>
+          <div id="weights"></div>
+          <div class="slider"><span>Budget stretch</span><input type="range" id="tolerance" min="0" max="0.5" step="0.05"><b id="tolerance-v"></b></div>
+          <label class="row small"><input type="checkbox" id="autolearn" style="width:auto"> Auto-learn from 👍 / 👎 feedback</label>
+          <div class="row" style="margin-top:12px"><button class="danger" id="reset-model">Reset model</button></div>
+        </div>
+        <div class="card">
+          <h2>Playground</h2>
+          <p class="small muted" style="margin-top:-6px">Try a customer profile and watch the ranking change as you move the sliders.</p>
+          <div class="form-grid" id="play-form">
+            <div class="field"><label>Budget (max $)</label><input name="budgetMax" type="number" value="40000"></div>
+            <div class="field"><label>Types</label><input name="types" value="suv"></div>
+            <div class="field"><label>Fuels</label><input name="fuels" value="hybrid"></div>
+            <div class="field"><label>Brands</label><input name="brands" value=""></div>
+            <div class="field"><label>Features</label><input name="features" value="awd"></div>
+            <div class="field"><label>Min seats</label><input name="seatsMin" type="number" value=""></div>
+          </div>
+          <div class="cars" id="play-results"></div>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h2>Learned car boosts</h2><div id="boosts" class="small"></div></div>
+        <div class="card"><h2>Recent feedback</h2><div id="feedback" class="small"></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Dealers -->
+  <section class="view" id="view-dealers">
+    <div class="page"><div class="page-inner">
+      <div class="card">
+        <h2 id="dealer-form-title">Add dealer</h2>
+        <form id="dealer-form">
+          <input type="hidden" name="id">
+          <div class="form-grid">
+            <div class="field"><label>Name *</label><input name="name" required></div>
+            <div class="field"><label>City</label><input name="city"></div>
+            <div class="field"><label>Phone</label><input name="phone"></div>
+            <div class="field"><label>Email</label><input name="email" type="email"></div>
+          </div>
+          <div class="field" style="margin-top:8px"><label>Description (shown on the dealer page)</label><textarea name="description" rows="2"></textarea></div>
+          <div class="row" style="margin-top:10px">
+            <button class="primary" id="dealer-submit">Add dealer</button>
+            <button type="button" id="dealer-cancel" hidden>Cancel</button>
+          </div>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Dealers</h2>
+        <table>
+          <thead><tr><th>Dealer</th><th>Contact</th><th>Stock</th><th>Status</th><th></th></tr></thead>
+          <tbody id="dealer-rows"></tbody>
+        </table>
+      </div>
+    </div></div>
+  </section>
+</div>
+<script src="/cards.js"></script>
+<script src="/agent.js"></script>
+</body>
+</html>

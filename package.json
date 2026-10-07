@@ -1,0 +1,14 @@
+{
+  "name": "find-your-car",
+  "version": "0.1.0",
+  "description": "AI car-recommender chat assistant (CodeMie LLM) with agent takeover, swappable channels and a self-tuning matching model",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "reset": "node -e \"for (const f of ['data/dealers.json','data/model.json']) require('fs').rmSync(f,{force:true})\" && echo demo data reset",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20.12" },
+  "license": "MIT"
+}
